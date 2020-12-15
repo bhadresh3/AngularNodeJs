@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ListingsPageComponent } from './listings-page/listings-page.component';
+import { ListingsDetailComponent } from './listings-detail/listings-detail.component';
+import { EditListingPageComponent } from './edit-listing-page/edit-listing-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { MyListingsPageComponent } from './my-listings-page/my-listings-page.component';
+import { NewListingsPageComponent } from './new-listings-page/new-listings-page.component';
+  import { from } from 'rxjs';
+
+const routes: Routes = [
+  { path: '', redirectTo:'/listings', pathMatch: 'full'},
+  {path: 'listings', component: ListingsPageComponent, pathMatch: 'full'},
+  {path: 'listings/:id', component: ListingsDetailComponent},
+  {path: 'contact/:id', component: ContactPageComponent},
+  {path: 'edit-listing/:id', component: EditListingPageComponent},
+  {path: 'my-listings', component: MyListingsPageComponent},
+  {path: 'new-listing', component: NewListingsPageComponent}
+
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
